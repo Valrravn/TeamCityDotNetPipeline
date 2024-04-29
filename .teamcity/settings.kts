@@ -71,7 +71,7 @@ object NuGetPack : BuildType({
             name = "Pack"
             id = "Pack_1"
             projects = "SampleDotNetProj"
-            configuration = "Release"
+            configuration = "Debug"
             outputDir = "SampleDotNetProj/package"
             versionSuffix = "1.0.0"
             sdk = "8"
