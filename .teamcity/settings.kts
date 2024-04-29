@@ -173,7 +173,6 @@ object TestReport : BuildType({
         dependency(Test1) {
             snapshot {
                 onDependencyFailure = FailureAction.IGNORE
-                onDependencyCancel = FailureAction.IGNORE
             }
 
             artifacts {
