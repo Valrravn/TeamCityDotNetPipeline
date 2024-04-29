@@ -173,15 +173,9 @@ object TestReport : BuildType({
     }
 
     dependencies {
-        dependency(Test1) {
-            snapshot {
-                onDependencyFailure = FailureAction.IGNORE
-                onDependencyCancel = FailureAction.IGNORE
-            }
-
-            artifacts {
-                artifactRules = "Snapshot_1 => Snapshots/Suite1"
-            }
+        snapshot(Test1) {
+            onDependencyFailure = FailureAction.IGNORE
+            onDependencyCancel = FailureAction.IGNORE
         }
         dependency(Test2) {
             snapshot {
