@@ -4,7 +4,6 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.dotCover
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetBuild
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetPack
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetTest
-import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -51,12 +50,6 @@ object Build : BuildType({
             id = "dotnet"
             projects = "SampleDotNetProj.sln"
             sdk = "8"
-        }
-    }
-
-    triggers {
-        vcs {
-            enabled = false
         }
     }
 
