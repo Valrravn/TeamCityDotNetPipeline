@@ -126,8 +126,6 @@ object Test1 : BuildType({
 object Test2 : BuildType({
     name = "Test2"
 
-    artifactRules = """%teamcity.agent.home.dir%\temp\agentTmp\*.dcvr => Snapshot_2"""
-
     vcs {
         root(DslContext.settingsRoot)
     }
