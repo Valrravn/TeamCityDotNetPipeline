@@ -157,10 +157,8 @@ object TestReport : BuildType({
             name = "dotCover"
             id = "dotCover"
             toolPath = "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%"
-            snapshotPaths = """
-                %teamcity.build.workingDir%\Snapshots\Suite1\*.dcvr
-                %teamcity.build.workingDir%\Snapshots\Suite2\*.dcvr
-            """.trimIndent()
+            executable = "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%/dotCover.dll"
+            commandLineArguments = "dotnet --targetWorkingDir=%teamcity.build.checkoutDir% -- test ./SampleDotNetProj/SampleDotNetProj.csproj"
         }
     }
 
