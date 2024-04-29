@@ -180,9 +180,15 @@ object TestReport : BuildType({
                 artifactRules = "+:*/*.dcvr"
             }
         }
-        snapshot(Test2) {
-            onDependencyFailure = FailureAction.IGNORE
-            onDependencyCancel = FailureAction.IGNORE
+        dependency(Test2) {
+            snapshot {
+                onDependencyFailure = FailureAction.IGNORE
+                onDependencyCancel = FailureAction.IGNORE
+            }
+
+            artifacts {
+                artifactRules = "+:*/*.dcvr"
+            }
         }
     }
 })
