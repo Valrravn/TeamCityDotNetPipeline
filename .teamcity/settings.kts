@@ -94,8 +94,6 @@ object NuGetPack : BuildType({
 object Test1 : BuildType({
     name = "Test1"
 
-    artifactRules = """%teamcity.agent.home.dir%\temp\agentTmp\*.dcvr => Snapshot_1"""
-
     vcs {
         root(DslContext.settingsRoot)
     }
