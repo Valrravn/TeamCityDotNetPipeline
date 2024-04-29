@@ -103,9 +103,7 @@ object Test1 : BuildType({
             id = "dotnet"
             projects = "TestSuite1/TestSuite1.csproj"
             sdk = "8"
-            coverage = dotcover {
-                toolPath = "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%"
-            }
+            param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
         }
     }
 
