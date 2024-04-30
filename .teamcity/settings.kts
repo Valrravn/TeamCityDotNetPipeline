@@ -154,7 +154,7 @@ object TestReport : BuildType({
             name = "dotCover"
             id = "dotCover"
             toolPath = "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%"
-            snapshotPaths = "%teamcity.build.workingDir%/*/*.dcvr"
+            snapshotPaths = """"%teamcity.build.workingDir%/*/*.dcvr""""
         }
     }
 
