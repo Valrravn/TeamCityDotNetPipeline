@@ -23,16 +23,17 @@ changeBuildType(RelativeId("Test2")) {
         }
     }
     steps {
-        update<DotnetTestStep>(0) {
-            executionMode = BuildStep.ExecutionMode.RUN_ON_FAILURE
-            clearConditions()
-        }
-        insert(1) {
+        insert(0) {
             script {
                 name = "Disk prep"
                 id = "simpleRunner"
                 scriptContent = "test"
+                param("teamcity.step.phase", "bootstrap")
             }
+        }
+        update<DotnetTestStep>(1) {
+            executionMode = BuildStep.ExecutionMode.RUN_ON_FAILURE
+            clearConditions()
         }
     }
 }
