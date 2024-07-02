@@ -29,6 +29,7 @@ changeBuildType(RelativeId("Test2")) {
         }
         insert(1) {
             script {
+                name = "Disk prep"
                 id = "simpleRunner"
                 scriptContent = "test"
             }
