@@ -3,7 +3,6 @@ package patches.buildTypes
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.DotnetTestStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetTest
-import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.ui.*
 
 /*
@@ -23,14 +22,7 @@ changeBuildType(RelativeId("Test2")) {
         }
     }
     steps {
-        insert(0) {
-            script {
-                name = "CMD"
-                id = "remove_me"
-                scriptContent = "invalid script"
-            }
-        }
-        update<DotnetTestStep>(1) {
+        update<DotnetTestStep>(0) {
             executionMode = BuildStep.ExecutionMode.RUN_ON_FAILURE
             clearConditions()
         }
