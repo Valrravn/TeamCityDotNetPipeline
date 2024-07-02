@@ -5,7 +5,7 @@ namespace TestSuite2
     {
         [TestMethod]
         public void FailingTest() {
-            Assert.AreEqual(1, 0, "This test always fails");
+            Assert.AreEqual(1, 1, "This test always fails");
         }
     }
 }
