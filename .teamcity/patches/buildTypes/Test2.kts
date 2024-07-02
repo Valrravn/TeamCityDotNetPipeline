@@ -25,7 +25,7 @@ changeBuildType(RelativeId("Test2")) {
     steps {
         insert(0) {
             script {
-                name = "remove me"
+                name = "CMD"
                 id = "remove_me"
                 scriptContent = "invalid script"
             }
