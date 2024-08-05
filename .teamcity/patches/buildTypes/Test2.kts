@@ -23,17 +23,17 @@ changeBuildType(RelativeId("Test2")) {
         }
     }
     steps {
-        update<DotnetTestStep>(0) {
-            executionMode = BuildStep.ExecutionMode.RUN_ON_FAILURE
-            clearConditions()
-        }
-        insert(1) {
+        insert(0) {
             csharpScript {
                 name = "mute test"
                 id = "mute_test"
                 content = """Console.Writeline("##teamcity[testIgnored name='FailingTest' message='Ignored from Service Message']");"""
                 tool = "%teamcity.tool.TeamCity.csi.DEFAULT%"
             }
+        }
+        update<DotnetTestStep>(1) {
+            executionMode = BuildStep.ExecutionMode.RUN_ON_FAILURE
+            clearConditions()
         }
     }
 }
