@@ -27,7 +27,7 @@ changeBuildType(RelativeId("Test2")) {
             csharpScript {
                 name = "mute test"
                 id = "mute_test"
-                content = """Console.Writeline("##teamcity[testIgnored name='FailingTest' message='Ignored from Service Message']");"""
+                content = """Console.WriteLine("##teamcity[testIgnored name='FailingTest' message='Ignored from Service Message']");"""
                 tool = "%teamcity.tool.TeamCity.csi.DEFAULT%"
             }
         }
