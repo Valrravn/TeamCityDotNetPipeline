@@ -2,6 +2,7 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.DotnetTestStep
+import jetbrains.buildServer.configs.kotlin.buildSteps.csharpScript
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetTest
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.ui.*
@@ -34,6 +35,14 @@ changeBuildType(RelativeId("Test2")) {
         update<DotnetTestStep>(1) {
             executionMode = BuildStep.ExecutionMode.RUN_ON_FAILURE
             clearConditions()
+        }
+        insert(2) {
+            csharpScript {
+                name = "mute test"
+                id = "mute_test"
+                content = """Console.Writeline("##teamcity[testIgnored name='FailingTest' message='Ignored from Service Message']");"""
+                tool = "%teamcity.tool.TeamCity.csi.DEFAULT%"
+            }
         }
     }
 }
